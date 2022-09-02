@@ -1,12 +1,14 @@
 import React from "react";
+import { TodoItem } from "./TodoItem";
 
-export const TodoList = (props) => {
+export const TodoList = ({ todos = [] }) => {
   return (
     <>
-      <li className="list-group-item d-flex justify-content-between">
-        <span className="align-self-center">{props.info.description}</span>
-        <button className="btn btn-danger">Borrar</button>
-      </li>
+      <ul className="list-group">
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo}></TodoItem>
+        ))}
+      </ul>
     </>
   );
 };
